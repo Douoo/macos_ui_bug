@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:macos_ui/macos_ui.dart';
 
-void main() {
+Future<void> _configureMacosWindowUtils() async {
+  const config = MacosWindowUtilsConfig(
+    toolbarStyle: NSWindowToolbarStyle.unified,
+  );
+  await config.apply();
+}
+
+void main() async {
+  await _configureMacosWindowUtils();
+
   runApp(const MyApp());
 }
 
